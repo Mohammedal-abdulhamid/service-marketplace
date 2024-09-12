@@ -1,0 +1,26 @@
+{
+  "name": "service-marketplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-private-property-in-object"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

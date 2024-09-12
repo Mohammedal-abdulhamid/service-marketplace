@@ -1,9 +1,13 @@
 const express = require ('express');
 const db = require("./db/connection.js")
+const cors = require('cors');
 const app = express();
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 
-const Port = process.env.PORT || 3000;
+
+const Port = process.env.PORT || 3001;
 app.use(express.json());
 
 // get all services
