@@ -82,6 +82,20 @@ app.get('/service/:id', async (req, res) => {
     }
 });
 
+// Get reviews for a specific service
+app.get('/api/reviews/:serviceId', async (req, res) => {
+    const { serviceId } = req.params;
+    try {
+        const query = 'SELECT * FROM reviews WHERE service_id = $1 ORDER BY created_at DESC LIMIT 20;';
+        const values = [serviceId];
+        const result = await db.query(query, values);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 
 // create new listing
 app.post('/api/allServices/create', async (req, res) => {

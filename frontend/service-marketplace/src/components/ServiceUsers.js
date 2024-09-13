@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Helper function to render stars
+const renderStars = (rating) => {
+  const stars = [];
+  for (let i = 0; i < 5; i++) {
+    stars.push(
+      <span key={i} className={`inline-block ${i < rating ? 'text-yellow-500' : 'text-gray-400'}`}>
+        ★
+      </span>
+    );
+  }
+  return stars;
+};
+
 
 function ServiceUsers() {
   const [services, setServices] = useState([]);
@@ -106,6 +119,9 @@ function ServiceUsers() {
               <p className="text-gray-600"> Looking for: {service.job}</p>
               <p className="text-gray-600">{service.details}</p>
               <p className="text-gray-600"> Location: {service.location}</p>
+              <div className="m-2">
+                  {renderStars(service.average_rating || 0)} 
+              </div>
               
             </div>
            </Link>
