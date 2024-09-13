@@ -79,10 +79,11 @@ const Home = () => {
      
 
       {/* Service Listings */}
-      <Link to="/:id">
+      {/* <Link to="/:id"> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredServices.length > 0 ? (
           filteredServices.map((service) => (
+            <Link to={`/${service.serial_number}`} key={service.serial_number}>
             <div key={service.id} className="bg-white shadow-md p-4 rounded-lg">
               <div class="flex justify-between">
                 
@@ -101,6 +102,7 @@ const Home = () => {
               <p className="text-gray-600"> Location: {service.location}</p>
               
             </div>
+            </Link>
            
           ))
         ) : (
@@ -109,7 +111,7 @@ const Home = () => {
           </div>
         )}
       </div>
-      </Link>
+      {/* </Link> */}
     </div>
     
   );

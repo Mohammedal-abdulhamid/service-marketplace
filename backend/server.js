@@ -64,7 +64,7 @@ app.get('/api/allServices/seekers/:keyword', async(req, res) =>{
 
 //  get service by id
 
-app.get('/api/allServices/:id', async (req, res) => {
+app.get('/service/:id', async (req, res) => {
     const { id } = req.params;  
 
     try {
