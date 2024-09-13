@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/allServices');
+        const response = await fetch('http://localhost:3001');
         const data = await response.json();
         setServices(data);
         setLoading(false);
@@ -63,17 +64,22 @@ const Home = () => {
       </div>
       {/* Navigation Buttons */}
       <div className="flex justify-center space-x-4 mb-8">
+        <Link to="/providers">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           I’m a Service Provider
         </button>
+        </Link>
+         <Link to="/seekers">
         <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
           I’m Looking for a Service
         </button>
+        </Link>
       </div>
 
      
 
       {/* Service Listings */}
+      <Link to="/:id">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredServices.length > 0 ? (
           filteredServices.map((service) => (
@@ -95,6 +101,7 @@ const Home = () => {
               <p className="text-gray-600"> Location: {service.location}</p>
               
             </div>
+           
           ))
         ) : (
           <div className="col-span-full text-center text-gray-600">
@@ -102,7 +109,9 @@ const Home = () => {
           </div>
         )}
       </div>
+      </Link>
     </div>
+    
   );
 };
 

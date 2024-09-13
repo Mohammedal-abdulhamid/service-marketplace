@@ -12,11 +12,11 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/api/allServices' element={<Home />} />
-        <Route path='/api/allServices/providers' element={<ServiceProviders/>} />
-        <Route path='/api/allServices/seekers' element={<ServiceUsers />} />
-        <Route path='/api/allServices/:id' element={<GetOneService />} />
-        <Route path='/api/allServices/form' element={<Form />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/providers' element={<ServiceProviders/>} />
+        <Route path='/seekers' element={<ServiceUsers />} />
+        <Route path='/:id' element={<GetOneService />} />
+        <Route path='/form' element={<Form />} />
       </Routes>
        
     </Router>

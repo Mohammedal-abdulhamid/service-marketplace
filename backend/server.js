@@ -11,20 +11,20 @@ const Port = process.env.PORT || 3001;
 app.use(express.json());
 
 // get all services
-app.get('/api/allServices', async(req, res) =>{
+app.get('/', async(req, res) =>{
     const allListing = await db.query('select * from allservices;')
     console.log(allListing.rows)
     res.json(allListing.rows)
 })
 // get all service providers
-app.get('/api/allServices/providers', async(req, res) =>{
+app.get('/providers', async(req, res) =>{
     const allListing = await db.query('select * from allservices WHERE provider = true AND seeker = false;')
     console.log(allListing.rows)
     res.json(allListing.rows)
 })
 
 // get all service seeker
-app.get('/api/allServices/seekers', async(req, res) =>{
+app.get('/seekers', async(req, res) =>{
     const allListing = await db.query('select * from allservices WHERE provider = false AND seeker = true;')
     console.log(allListing.rows)
     res.json(allListing.rows)
@@ -32,7 +32,7 @@ app.get('/api/allServices/seekers', async(req, res) =>{
 
 
 // get all service providers that matches a keyword
-app.get('/api/allServices/providers/:keyword', async(req, res) =>{
+app.get('/providers/:keyword', async(req, res) =>{
     const {keyword} = req.params
     try{
         const query = 'SELECT * FROM allservices WHERE job ILIKE $1 AND provider = true;';
