@@ -51,7 +51,14 @@ function ServiceUsers() {
   return (
     
     <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
-       {/* Search Bar */}
+       <div>
+          <Link to="/">
+            <button className="bg-white shadow-md pl-3 pr-3 pt-2 pb-2 rounded-lg text-gray-800 hover:bg-gray-200">
+              Home
+            </button>
+          </Link>
+        </div>
+       {/* Search Bar  */}
        <div className="max-w-lg mx-auto mb-8">
         <input
           type="text"
